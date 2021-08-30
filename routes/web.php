@@ -1,6 +1,16 @@
 <?php
 
 Route::prefix('admin')->group(function() {
+
+    /**
+     * Route Details Plans
+     */
+    Route::get('plans/{url}/details', 'DetailPlanController@index')->name('details.plan.index');
+
+
+    /**
+     * Routes Plans
+     */
     Route::get('plans/create', 'Admin\PlanController@create')->name('plans.create');
     Route::put('plans/{url}', 'Admin\PlanController@update')->name('plans.update');
     Route::get('plans/{url}/edit', 'Admin\PlanController@edit')->name('plans.edit');

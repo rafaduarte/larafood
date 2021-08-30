@@ -9,6 +9,11 @@ class plan extends Model
     //
     protected $fillable = ['name','url','price', 'description'];
 
+    public function details()
+    {
+        return $this->hasMany(DetailPlan::class);
+    }
+
     public function search($filter = null)
     {   
         // %% para pesquisa tanto no inicio quanto no final
