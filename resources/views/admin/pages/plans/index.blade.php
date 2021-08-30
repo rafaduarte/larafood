@@ -41,7 +41,8 @@
                             R$ {{ number_format($plan->price, 2, ',', '.')}}
                         </td>
                         <td  style="width=10px">
-                            <a href="{{ route('plans.edit', $plan->url)}}" class="">Edit</a>
+                            <a href="{{ route('details.plan.index', $plan->url)}}" class="btn btn-primary">Detalhes</a>
+                            <a href="{{ route('plans.edit', $plan->url)}}" class="btn btn-info">Edit</a>
                             <a href="{{ route('plans.show', $plan->url)}}" class="btn btn-warning">Ver</a>
                         </td>
                     </tr>
@@ -53,7 +54,7 @@
             @if (isset($filters))
             {!! $plans->appends($filters)->links() !!}   
             @else
-                {!!$plans->links() !!}
+               {!!$plans->links() !!}
             @endif
         </div>
     </div>
