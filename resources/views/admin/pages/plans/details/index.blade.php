@@ -29,7 +29,7 @@
                             {{$detail->name}}
                         </td>
                         <td  style="width=10px">
-                            <a href="{{ route('plans.edit', $plan->url)}}" class="">Edit</a>
+                            <a href="{{ route('details.plan.edit', [$plan->url, $detail->id])}}" class="">Edit</a>
                             <a href="{{ route('plans.show', $plan->url)}}" class="btn btn-warning">Ver</a>
                         </td>
                     </tr>
