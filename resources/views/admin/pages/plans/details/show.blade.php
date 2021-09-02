@@ -1,3 +1,4 @@
+@include('admin.includes.alerts')
 @extends('adminlte::page')
 
 @section('title', "Detalhes do detalhe {$detail->name}")
