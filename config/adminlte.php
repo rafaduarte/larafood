@@ -252,7 +252,7 @@ return [
             'text' => 'Perfis',
             'url'  => 'admin/profiles',
             'icon' => 'fas fa-address-book'
-            //'can'  => 'manage-blog',
+           //'can'  => 'manage-blog',
         ],
       /*  [
             'text'        => 'pages',
