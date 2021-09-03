@@ -5,6 +5,18 @@ Route::prefix('admin')
         ->group(function() {
 
     /**
+     * Routes Permissions
+     */
+    Route::any('permissions/search', 'ACL\PermissionController@search')->name('permissions.search');
+    Route::resource('permissions', 'ACL\PermissionController');
+
+    /**
+     * Routes Profiles
+     */
+    Route::any('profiles/search', 'ACL\ProfileController@search')->name('profiles.search');
+    Route::resource('profiles', 'ACL\ProfileController');
+
+    /**
      * Route Details Plans
      */
     Route::get('plans/{url}/details/create', 'DetailPlanController@create')->name('details.plan.create');
