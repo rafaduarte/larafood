@@ -22,7 +22,13 @@ class CreatePermissionProfileTable extends Migration
                     ->references('id')
                     ->on('permissions')
                     ->onDelete('cascade'); // deleta junto os relacionamentos
+
+            $table->foreign('profile_id')
+                    ->references('id')
+                    ->on('profiles')
+                    ->onDelete('cascade'); // deleta junto os relacionamentos
         });
+       
     }
 
     /**

@@ -33,8 +33,7 @@
                     </thead>
                     <tbody>
                        <form action="{{ route('profiles.permissions.attach', $profile->id )}}" method="post">
-                        @csrf
-                        
+                        @csrf    
                         @foreach ($permissions as $permission)
                         <tr>
                             <td>
