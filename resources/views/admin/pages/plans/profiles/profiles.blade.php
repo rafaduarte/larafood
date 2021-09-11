@@ -1,33 +1,37 @@
 @extends('adminlte::page')
 
-@section('title', 'Perfis')
+@section('title', "Perfis do plano {$plan->name}")
 
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index')}}">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('profiles.index')}}">Perfis</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('plans.index')}}">Planos</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('plans.profiles', $plan->id) }}">Perfis</a></li>
     </ol>
 
-    <h1>Perfis <a href="{{ route('profiles.create')}}" class="btn btn-dark"><i class="fas fa-plus-square"></i> ADD</a></h1>
+    <h1>Perfis do plano <strong> {{ $plan->name }}</strong></h1>
+        
+    <a href="{{ route('plans.profiles.available', $plan->id)}}" class="btn btn-dark"><i class="fas fa-plus-square"></i> ADD Novo Perfil</a>
 @stop
 
 @section('content')
     <div class="card">
+        {{--
         <div class="card-header">
-            <form action="{{route('plans.search')}}" method="POST" class="form form-inline">
+            <form action="{{route('profiles.profiles.available', $profile->id)}}" method="POST" class="form form-inline">
                 @csrf
                 <div class="form-group">
                     <input type="text" name="filter" placeholder="Nome" class="form-control" value="{{ $filters['filter'] ?? '' }}">
                 </div>
                 <button type="submit" class="btn btn-dark">Filtrar</button>
             </form>
-        </div>
+        </div> --}}
         <div class="card-body">
                 <table class="table table-condensed">
                     <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>Ações</th>
+                            <th width="250">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,10 +42,7 @@
                         </td>
                         <td  style="width=10px">
                            {{-- <a href="{{ route('details.profile.index', $plan->url)}}" class="btn btn-primary">Detalhes</a> --}}
-                            <a href="{{ route('profiles.edit', $profile->id)}}" class="btn btn-info">Edit</a>
-                            <a href="{{ route('profiles.show', $profile->id)}}" class="btn btn-warning">Ver</a>
-                            <a href="{{ route('profiles.permissions', $profile->id)}}" class="btn btn-warning"><i class="fas fa-lock"></i></a>
-                            <a href="{{ route('profiles.plans', $profile->id)}}" class="btn btn-warning"><i class="fas fa-list-alt"></i></a>
+                            <a href="{{ route('plans.profile.detach', [$profile->id, $profile->id])}}" class="btn btn-danger">Desvincular</a>
                         </td>
                     </tr>
                 @endforeach
