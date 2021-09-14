@@ -76,11 +76,13 @@ Route::get('admin/plans', 'Admin\PlanController@index')->name('plans.index');
 Route::get('admin', 'Admin\PlanController@index')->name('admin.index');
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
-/**
+Route::get('/', 'Site\SiteController@index')->name('site.home');
+
+    /**
  * Auth Routes
  */
 Auth::routes();
