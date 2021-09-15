@@ -18,6 +18,6 @@ class Tenant extends Model
 
     public function plan()
     {
-        return $this->belongsToMany(Tenant::class);
+        return $this->belongsToMany(plan::class);
     }
 }
