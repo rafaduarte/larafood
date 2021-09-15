@@ -24,9 +24,9 @@ class SiteController extends Controller
       return redirect()-back();
     }
 
-    session()->put('plan', $plan);
+    session()->put('plan', $plan); // cria uma sessão com o plano selecionado
 
-    return redirect()->route('register');
+    return redirect()->route('register'); //redereciona para a view de register com o plano selecionado
 
   }
 }
