@@ -80,11 +80,22 @@ Route::get('admin', 'Admin\PlanController@index')->name('admin.index');
     return view('welcome');
 }); */
 
+
+/**
+ * Site
+ */
+Route::get('/plan/{url}', 'Site\SiteController@plan')->name('plan.subscription');
 Route::get('/', 'Site\SiteController@index')->name('site.home');
 
-    /**
- * Auth Routes
+
+
+/**
+ * 
+ */
+//Route::get('/home', 'HomeController@index')->name('home');
+
+/**
+ * Auth
  */
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');

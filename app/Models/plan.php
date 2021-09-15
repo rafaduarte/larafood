@@ -22,6 +22,11 @@ class plan extends Model
         return $this->belongsToMany(Profile::class);
     }
 
+    public function tenants()
+    {
+        return $this->hasMany(Tenant::class);
+    }
+
     public function search($filter = null)
     {   
         // %% para pesquisa tanto no inicio quanto no final
