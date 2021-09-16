@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Tenant;
 use App\Providers\RouteServiceProvider;
+use App\Services\TenantService;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -65,6 +67,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+
     protected function create(array $data)
     {
         /*
@@ -79,21 +82,8 @@ class RegisterController extends Controller
             return redirect()->route('site.home');
         }
 
-       $tenant = $plan->tenants()->create([
-            'cnpj' => $data['cnpj'],
-            'name' => $data['empresa'],
-            'url' => Str::kebab( $data['empresa']),
-            'email' => $data['email'],
-
-            'subscription' => now(),
-            'expires_at' => now()->addDays(7), // o acesso expira em sete dias
-        ]);
-        
-        $user = $tenant->users()->create([
-            'name' => $data['empresa'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $tenantService = app(TenantService::class);
+        $user = $tenantService->make($plan, $data);
 
         return $user;
     }
