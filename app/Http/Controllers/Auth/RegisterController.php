@@ -52,12 +52,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [ /*
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'email' => ['required', 'string', 'email', 'min:3', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'cnpj' => ['required', 'unique:tenants'],
-            'empresa' => ['required', 'unique:tenants,name'], */
+            'empresa' => ['required', 'string', 'min:3', 'max:255', 'unique:tenants,name'],
+            'cnpj' => ['required', 'numeric', 'min:14', 'max:14', 'unique:tenants,name'],
         ]);
     }
 
@@ -82,7 +82,7 @@ class RegisterController extends Controller
             return redirect()->route('site.home');
         }
 
-        $tenantService = app(TenantService::class);
+        $tenantService = app(TenantService::class); // cria uma instância da classe
         $user = $tenantService->make($plan, $data);
 
         return $user;
