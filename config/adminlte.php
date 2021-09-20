@@ -260,6 +260,12 @@ return [
             'icon' => 'fas fa-lock'
            //'can'  => 'manage-blog',
         ],
+        [
+            'text' => 'Usuários',
+            'url'  => 'admin/users',
+            'icon' => 'fas fa-users',
+           //'can'  => 'manage-blog',
+        ],
       /*  [
             'text'        => 'pages',
             'url'         => 'admin/pages',

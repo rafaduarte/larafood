@@ -30,6 +30,12 @@ Route::prefix('admin')
     Route::any('permissions/search', 'ACL\PermissionController@search')->name('permissions.search');
     Route::resource('permissions', 'ACL\PermissionController');
 
+     /**
+     * Routes Users
+     */
+    Route::any('users/search', 'UserController@search')->name('users.search');
+    Route::resource('users', 'UserController');
+
     /**
      * Routes Profiles
      */
@@ -64,6 +70,7 @@ Route::prefix('admin')
 
     Route::get('admin', 'PlanController@index')->name('admin.index');
 });
+
 /*
 Route::get('admin/plans/create', 'Admin\PlanController@create')->name('plans.create');
 Route::put('admin/plans/{url}', 'Admin\PlanController@update')->name('plans.update');
