@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Scopes\AgeScope;
 use App\Observers\TenantObserver;
 use Illuminate\Database\Eloquent\Model;
 
