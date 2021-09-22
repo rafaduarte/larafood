@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Observers\TenantObserver;
+use App\Tenant\Observers\TenantObserver;
 use Illuminate\Database\Eloquent\Model;
 
 
