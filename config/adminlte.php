@@ -272,6 +272,13 @@ return [
             'icon' => 'fas fa-layer-group'
            //'can'  => 'manage-blog',
         ],
+        [
+            'text' => 'Produtos',
+            'url'  => 'admin/products',
+            'icon' => 'fas fa-layer-group'
+           //'can'  => 'manage-blog',
+        ],
+        
       /*  [
             'text'        => 'pages',
             'url'         => 'admin/pages',

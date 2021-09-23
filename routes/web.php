@@ -22,6 +22,14 @@ Route::prefix('admin')
     Route::any('profiles/{id}/permissions/create', 'ACL\PermissionProfileController@permissionsAvailable')->name('profiles.permissions.available');
     Route::get('profiles/{id}/permissions', 'ACL\PermissionProfileController@permissions')->name('profiles.permissions');
     Route::get('permissions/{id}/profile', 'ACL\PermissionProfileController@profiles')->name('permissions.profiles');
+    
+
+    /**
+     * Routes Products
+     */
+    Route::any('products/search', 'ProductController@search')->name('products.search');
+    Route::resource('products', 'ProductController');
+
 
     /**
      * Routes Categories
