@@ -109,7 +109,7 @@ class ProductController extends Controller
             $data['image'] = $request->image->store("tenants/{$tenant->uuid}/products");
         }
 
-        $product->update($request->all());
+        $product->update($data);
 
         return redirect()->route('products.index');
     }

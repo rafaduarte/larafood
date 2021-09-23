@@ -34,7 +34,9 @@ z                            <th width="270">Ações</th>
                     <tbody>
                         @foreach ($products as $product)
                     <tr>
-                        <td>{{$product->Image}}</td>
+                        <td>
+                            <img src="{{ url("storage/{$product->image}")}}" alt="{{ $product->title}}" style="max-width: 90px;">
+                        </td>
                         <td>{{$product->title}}</td>
                         <td  style="width=10px">
                             <a href="{{ route('products.edit', $product->id)}}" class="btn btn-info">Edit</a>
