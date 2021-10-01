@@ -28,7 +28,7 @@ class StoreUpdateProduct extends FormRequest
         $rules =  [
             'title' => ['required', 'min:3', 'max:255', "unique:categories,name,{$id},id"],
             'description' => ['required', 'min:3', 'max:10000'],
-            'image' => ['required', 'image'],
+            'image' => ['required', 'mimes:pdf'],
             'price' => "required|regex:/^\d+(\.\d{1,2})?$/",
         ];
 

@@ -45,7 +45,16 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreUpdateProduct $request)
-    {
+    {   
+        /*
+        $inputValue = $request->all();
+
+        validate**
+
+        $arrayToString = implode(',', $request->input('name**'));
+        $inputValue['name**] = $arrayToString;
+        $this->repository->create($inputValue);
+        */
         $data = $request->all();
 
         $tenant = auth()->user()->tenant;
