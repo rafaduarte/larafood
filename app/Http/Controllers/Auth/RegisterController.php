@@ -77,7 +77,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]); */
 
-        if(!$plan = session('plan')){
+       if(!$plan = session('plan')){
 
             return redirect()->route('site.home');
         }

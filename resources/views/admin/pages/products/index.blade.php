@@ -14,7 +14,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <form action="{{route('products.search')}}" method="POST" class="form form-inline">
+            <form action="{{ route('products.search')}}" method="POST" class="form form-inline">
                 @csrf
                 <div class="form-group">
                     <input type="text" name="filter" placeholder="Filtrar" class="form-control" value="{{ $filters['filter'] ?? '' }}">
