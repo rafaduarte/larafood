@@ -5,6 +5,10 @@ Route::prefix('admin')
         ->middleware('auth')
         ->group(function() {
 
+            Route::get('test-acl', function () {
+                dd(auth()->user()->isAdmin());
+            });
+
     /**
      * Product x Category 
      */
@@ -62,7 +66,7 @@ Route::prefix('admin')
      * Routes Profiles
      */
     Route::any('profiles/search', 'ACL\ProfileController@search')->name('profiles.search');
-    Route::resource('profiles', 'ACL\ProfileController');
+    Route::resource('profiles', 'ACL\ProfileController')->middleware('can:profiles');
 
     /**
      * Route Details Plans
