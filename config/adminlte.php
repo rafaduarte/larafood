@@ -243,6 +243,12 @@ return [
             'text' => 'search',
         ], */
         [
+            'text' => 'Empresas',
+            'url'  => 'admin/tenants',
+            'icon' => 'fas fa-list-alt',
+            'can'  => 'tenant',
+        ],
+        [
             'text' => 'Planos',
             'url'  => 'admin/plans',
             'icon' => 'fas fa-list-alt'

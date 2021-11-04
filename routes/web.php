@@ -10,6 +10,12 @@ Route::prefix('admin')
             });
 
     /**
+     * Routes Tenants
+     */
+    Route::any('tenants/search', 'TenantController@search')->name('tenants.search');
+    Route::resource('tenants', 'TenantController');
+
+    /**
      * Product x Category 
      */
     Route::get('products/{id}/category/{idCategory}/detach', 'CategoryProductController@detachCategoryProduct')->name('products.category.detach');
