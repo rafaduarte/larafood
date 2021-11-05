@@ -261,6 +261,12 @@ return [
            //'can'  => 'manage-blog',
         ],
         [
+            'text' => 'Cargos',
+            'url'  => 'admin/roles',
+            'icon' => 'fas fa-address-card',
+            'can'  => 'roles',
+        ],
+        [
             'text' => 'Permissões',
             'url'  => 'admin/permissions',
             'icon' => 'fas fa-lock',
