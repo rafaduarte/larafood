@@ -34,7 +34,7 @@ class PermissionController extends Controller
         return redirect()->route('permissions.index');
    }
    public function edit($id)
-   {
+   {  
        if (!$permission = $this->repository->find($id)) {
            return redirect()->back();
        }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Tenant;
 use App\Providers\RouteServiceProvider;
 use App\Services\TenantService;
+use App\Tenant\Events\TenantCreated;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -84,6 +85,8 @@ class RegisterController extends Controller
 
         $tenantService = app(TenantService::class); // cria uma instância da classe
         $user = $tenantService->make($plan, $data);
+
+        event(new TenantCreated($user));
 
         return $user;
     }
