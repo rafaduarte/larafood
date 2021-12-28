@@ -1,14 +1,19 @@
 <?php
 
+use App\Http\Controllers\Admin\ProductController;
+use App\Models\Product;
+
 Route::prefix('admin')
         ->namespace('Admin')
         ->middleware('auth')
         ->group(function() {
 
-            Route::get('test-acl', function () {
+            /*Route::get('test-acl', function () {
                 dd(auth()->user()->isAdmin());
-            });
+            }); */
 
+    Route::get('test', 'ProductController@test');
+    
     /**
      * Role x User
      */

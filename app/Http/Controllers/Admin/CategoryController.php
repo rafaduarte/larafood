@@ -15,7 +15,7 @@ class CategoryController extends Controller
     {
         $this->repository = $category;
 
-        $this->middleware(['can:categories']);
+        //$this->middleware(['can:categories']);
     }
     /**
      * Display a listing of the resource.
@@ -126,7 +126,7 @@ class CategoryController extends Controller
                         ->where(function($query) use ($request){
                             if ($request->filter) {
                                 $query->orWhere('description', 'LIKE', "%{$request->filter}%");
-                                $query->orWhere('name', "%{$request->filter}%");
+                                $query->orWhere('name', 'LIKE', "%{$request->filter}%");
                             }
                         })
                         ->latest()

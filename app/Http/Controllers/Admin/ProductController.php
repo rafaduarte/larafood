@@ -169,4 +169,9 @@ class ProductController extends Controller
  
         return view('admin.pages.products.index', compact('products', 'filters'));
     }
+
+    public function test(){
+
+        return view('admin.test');
+    }
 }
